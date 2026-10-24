@@ -1,0 +1,544 @@
+/* ==========================================
+   SW+ — PÁGINAS DE LOS PAQUETES DE LIBROS
+   Libro de 5 Hunde, categorías, botones superiores y Materialbox.
+   ========================================== */
+
+
+/* ==========================================
+   SW+ — Libro de los perros: apoyo y sombra
+   ========================================== */
+
+/* Permitir que el libro sobresalga sobre la onda */
+section[data-section-id="670d93b2e63c9d76d27a36cd"]
+.content-wrapper {
+  overflow: visible; /*permite que el libro sobresalga del contenedor.*/
+  z-index: 1000; /*influye en qué elementos quedan por delante del libro.*/
+}
+
+section[data-section-id="670d93b2e63c9d76d27a36cd"]
+.fluid-engine {
+  overflow: visible; /*permite que el libro sobresalga del contenedor.*/
+}
+
+/* Bajar el libro en escritorio
+   translateY(clamp(MÍNIMO, IDEAL, MÁXIMO)):
+   - MÍNIMO (70px): desplazamiento mínimo hacia abajo.
+   - IDEAL (7.5vw): 7,5 % del ancho de la ventana. Con 1024 px de ancho, son 76,8 px.
+   - MÁXIMO (110px): desplazamiento máximo hacia abajo.
+   Para bajarlo más:  clamp(90px, 9vw, 130px)
+   Para subirlo:      clamp(50px, 6vw, 90px)
+   Se aplica desde 768 px de ancho (escritorio y muchos iPad). En pantallas
+   más estrechas lo controla el bloque "Ajustes exclusivos para móvil". */
+@media screen and (min-width: 768px) {
+  .fe-block-yui_3_17_2_1_1792143907915_6798 {
+    transform: translateY(clamp(70px, 7.5vw, 110px)) !important;
+  }
+}
+
+/* Evitar que el contenedor recorte la sombra */
+#block-yui_3_17_2_1_1792143907915_6798
+.fluid-image-container {
+  overflow: visible !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  isolation: isolate;
+}
+
+/* Dos sombras detrás del libro */
+#block-yui_3_17_2_1_1792143907915_6798
+.fluid-image-container::before,
+#block-yui_3_17_2_1_1792143907915_6798
+.fluid-image-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  transform: translateX(-50%);
+}
+
+/* Sombra estrecha de contacto */
+#block-yui_3_17_2_1_1792143907915_6798
+.fluid-image-container::before {
+  left: 50%;
+  bottom: -2px;
+  width: 100%;
+  height: 8px;
+  background: rgba(42, 31, 18, 1);
+  opacity: 1 !important;
+  filter: blur(1px);
+}
+
+/* Sombra amplia y difusa */
+#block-yui_3_17_2_1_1792143907915_6798
+.fluid-image-container::after {
+  left: 50%;
+  bottom: -9px;
+  width: 150%;
+  height: 36px;
+
+  opacity: 1 !important;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(42, 31, 18, 0.50) 0%,
+    rgba(42, 31, 18, 0.15) 30%,
+    transparent 100%
+  );
+
+  filter: blur(6px);
+}
+
+/* SW+ — Ajustes exclusivos para móvil */
+@media screen and (max-width: 767px) {
+
+  /* Apoyar el libro sobre la zona crema */
+  .fe-block-yui_3_17_2_1_1792143907915_6798 {
+    transform: translateY(
+      clamp(28px, 8vw, 40px)
+    ) !important;
+  }
+
+  /* Adaptar la sombra al tamaño móvil */
+  #block-yui_3_17_2_1_1792143907915_6798
+  .fluid-image-container::after {
+    width: 120%;
+    height: 22px;
+    bottom: -7px;
+    filter: blur(4px);
+  }
+
+  /* Separar el título de la base del libro */
+  section[data-section-id="6909095fa9c9de2332d12065"] {
+    padding-top: 16px;
+  }
+
+}
+
+/* ==========================================
+   ICONOS DE LOS BOTONES — 5 HUNDE
+   ========================================== */
+
+/* Iconos y ajustes de tamaño */
+section[data-section-id="6909095fa9c9de2332d12065"] {
+
+  /* Modifica estos dos valores para ajustar los iconos */
+  --sw-icon-size: 1.1em;
+  --sw-icon-gap: 0.35em;
+
+  /* Icono de reproducción */
+  --sw-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M10 8L16 12L10 16Z' fill='black' stroke='none'/%3E%3C/svg%3E");
+
+  /* Icono de descarga */
+  --sw-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3V15M7 10L12 15L17 10M4 15V20H20V15'/%3E%3C/svg%3E");
+}
+
+
+/* Reproducción: enlace que termina en #lesung */
+section[data-section-id="6909095fa9c9de2332d12065"]
+.sqs-block-button-element[href$="#lesung"] {
+  --sw-button-icon: var(--sw-play);
+}
+
+
+/* Descarga: enlace que termina en #materialbox */
+section[data-section-id="6909095fa9c9de2332d12065"]
+.sqs-block-button-element[href$="#materialbox"] {
+  --sw-button-icon: var(--sw-download);
+}
+
+
+/* Alineación de los dos botones con icono */
+section[data-section-id="6909095fa9c9de2332d12065"]
+.sqs-block-button-element:is(
+  [href$="#lesung"],
+  [href$="#materialbox"]
+) {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sw-icon-gap);
+}
+
+
+/* Representación de los iconos */
+section[data-section-id="6909095fa9c9de2332d12065"]
+.sqs-block-button-element:is(
+  [href$="#lesung"],
+  [href$="#materialbox"]
+)::before {
+  content: "";
+  display: block;
+
+  width: var(--sw-icon-size);
+  height: var(--sw-icon-size);
+  flex: 0 0 var(--sw-icon-size);
+
+  /* El icono hereda el color del texto */
+  background-color: currentColor;
+
+  -webkit-mask: var(--sw-button-icon) center / contain no-repeat;
+  mask: var(--sw-button-icon) center / contain no-repeat;
+}
+
+
+/* ==========================================
+   CATEGORÍAS DEL PAQUETE
+   ========================================== */
+
+/* Fila de categorías */
+.sw-pack-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  color: #18191A;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Cada icono con su texto */
+.sw-pack-meta > li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Diseño de los iconos */
+.sw-pack-meta svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Versión móvil */
+@media screen and (max-width: 767px) {
+  .sw-pack-meta {
+    font-size: 14px;
+    gap: 10px 16px;
+  }
+
+  .sw-pack-meta > li {
+    gap: 5px;
+  }
+
+  .sw-pack-meta svg {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+  }
+}
+
+/* ==========================================
+   SW+ — BOTONES DEL PAQUETE
+
+   Marcadores necesarios para la plantilla:
+   - Categorías: .sw-pack-meta
+   - Lectura: enlace terminado en #lesung
+   - Materialbox: enlace terminado en #materialbox
+   - Sección de materiales: ancla materialbox
+   - ZIP: enlace de Drive con export=download
+   ========================================== */
+
+
+/* AJUSTES EDITABLES DE LOS BOTONES SUPERIORES */
+
+section:has(.sw-pack-meta) {
+  --sw-cta-max-width: 340px;
+  --sw-cta-half-gap: 8px; /*Deja 16 px entre los botones del iPhone horizontal.*/
+  --sw-cta-top-gap: 16px; /*Espacio adicional debajo de las categorías en esa vista.*/
+}
+
+
+/* ==========================================
+   1. BOTONES SUPERIORES — ANCHOS MEDIOS
+   Mantener las proporciones actuales del iPad
+   ========================================== */
+
+@media screen
+and (min-width: 768px)
+and (max-width: 1400px) {
+
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#lesung"]),
+
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#materialbox"]) {
+    overflow: visible !important;
+    max-width: none !important;
+  }
+
+  section:has(.sw-pack-meta)
+  .sqs-block-button
+  .sqs-block-button-element:is(
+    [href$="#lesung"],
+    [href$="#materialbox"]
+  ) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box !important;
+
+    width: max-content !important;
+    min-width: 220px !important;
+    max-width: none !important;
+
+    padding: 12px 18px !important;
+    font-size: 16px !important;
+    white-space: nowrap !important;
+  }
+
+  section:has(.sw-pack-meta)
+  .sqs-block-button
+  .sqs-block-button-element:is(
+    [href$="#lesung"],
+    [href$="#materialbox"]
+  )::before {
+    width: 1.2em;
+    height: 1.2em;
+    flex: 0 0 1.2em;
+  }
+}
+
+
+/* ==========================================
+   2. IPAD VERTICAL
+   Conservar la alineación de los bloques
+   ========================================== */
+
+@media screen
+and (min-width: 768px)
+and (max-width: 1100px)
+and (orientation: portrait) {
+
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#lesung"]) {
+    width: auto !important;
+    justify-self: end !important;
+  }
+
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#materialbox"]) {
+    width: auto !important;
+    justify-self: start !important;
+  }
+
+  section:has(.sw-pack-meta)
+  .sqs-block-button
+  .sqs-block-button-element:is(
+    [href$="#lesung"],
+    [href$="#materialbox"]
+  ) {
+    min-width: 195px !important;
+    padding: 12px 16px !important;
+  }
+}
+
+
+/* ==========================================
+   3. IPHONE HORIZONTAL
+   Pantallas apaisadas de poca altura
+   ========================================== */
+
+@media screen
+and (min-width: 768px)
+and (max-width: 1100px)
+and (max-height: 550px)
+and (orientation: landscape) {
+
+  /* Reservar espacio para cada botón */
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#lesung"]),
+
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#materialbox"]) {
+    box-sizing: border-box !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: var(--sw-cta-max-width) !important;
+
+    padding: 0 var(--sw-cta-half-gap) !important;
+    margin-top: var(--sw-cta-top-gap) !important;
+  }
+
+  /* Lesung + Clips: lado izquierdo */
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#lesung"]) {
+    grid-column-start: 5 !important;
+    grid-column-end: 14 !important;
+    justify-self: end !important;
+  }
+
+  /* Materialbox: lado derecho */
+  section:has(.sw-pack-meta)
+  .fe-block:has(a[href$="#materialbox"]) {
+    grid-column-start: 14 !important;
+    grid-column-end: 23 !important;
+    justify-self: start !important;
+  }
+
+  section:has(.sw-pack-meta)
+  .sqs-block-button-container {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Ajustar cada botón al espacio de su bloque */
+  section:has(.sw-pack-meta)
+  .sqs-block-button
+  .sqs-block-button-element:is(
+    [href$="#lesung"],
+    [href$="#materialbox"]
+  ) {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    padding: 12px 16px !important;
+  }
+}
+
+
+/* ==========================================
+   4. MATERIALBOX — DESCARGA COMPLETA
+   Ajustes compartidos para todos los tamaños
+   ========================================== */
+
+#materialbox {
+  --sw-zip-max-width: 420px; /*Ancho máximo del botón ZIP.*/
+  --sw-zip-font-size: 18px; /*Tamaño del texto del ZIP.*/
+  --sw-zip-icon-size: 1.2em; /*Tamaño del icono del ZIP.*/
+
+  --sw-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3V15M7 10L12 15L17 10M4 15V20H20V15'/%3E%3C/svg%3E");
+}
+
+
+/* Ampliar el bloque que contiene el ZIP */
+
+#materialbox
+.fe-block:has(
+  .sqs-block-button-element[href*="export=download"]
+) {
+  box-sizing: border-box !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: var(--sw-zip-max-width) !important;
+
+  justify-self: start !important;
+}
+
+
+/* Escritorio e iPad: alinear con los materiales */
+
+@media screen and (min-width: 768px) {
+
+  #materialbox
+  .fe-block:has(
+    .sqs-block-button-element[href*="export=download"]
+  ) {
+    grid-column-start: 6 !important;
+    grid-column-end: 22 !important;
+  }
+}
+
+
+/* Móvil: utilizar el ancho interior de la sección */
+
+@media screen and (max-width: 767px) {
+
+  #materialbox
+  .fe-block:has(
+    .sqs-block-button-element[href*="export=download"]
+  ) {
+    grid-column-start: 2 !important;
+    grid-column-end: 10 !important;
+  }
+}
+
+
+/* Adaptar el contenedor al bloque */
+
+#materialbox
+.sqs-block-button-container:has(
+  .sqs-block-button-element[href*="export=download"]
+) {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+
+/* Mantener texto e icono dentro del fondo del botón */
+
+#materialbox
+.sqs-block-button-element[href*="export=download"] {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box !important;
+  gap: 0.45em;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 48px !important;
+
+  padding: 12px 20px !important;
+  font-size: var(--sw-zip-font-size) !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+
+
+/* Icono de descarga */
+
+#materialbox
+.sqs-block-button-element[href*="export=download"]::before {
+  content: "";
+  display: block;
+
+  width: var(--sw-zip-icon-size);
+  height: var(--sw-zip-icon-size);
+  flex: 0 0 var(--sw-zip-icon-size);
+
+  background-color: currentColor;
+
+  -webkit-mask: var(--sw-download) center / contain no-repeat;
+  mask: var(--sw-download) center / contain no-repeat;
+}
+
+/* Separación superior del ZIP en móvil y tablet */
+@media screen and (max-width: 1400px) {
+
+  #materialbox
+  .fe-block:has(
+    .sqs-block-button-element[href*="export=download"]
+  ) {
+    margin-top: 20px !important;
+  }
+
+}

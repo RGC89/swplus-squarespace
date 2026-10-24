@@ -8,7 +8,12 @@ las líneas de [`squarespace/code-injection.html`](squarespace/code-injection.ht
 
 | Archivo | Qué hace |
 |---|---|
-| `css/sitio.css` | Estilos generales. Hoy: evita que «DEINE BÜCHER» se parta en dos líneas. |
+| `css/general.css` | Paywall (ZUM FRAGEBOGEN), scroll suave, icono de enlace externo y barra de desplazamiento. |
+| `css/cabecera.css` | Botón de login, menús desplegables y hover de la navegación. |
+| `css/curso.css` | Página de lecciones: «← Zurück zu», «Nächster Clip» y panel lateral. |
+| `css/botones.css` | Botones primario, secundario y terciario de todo el sitio. |
+| `css/paquetes.css` | Páginas de paquetes: libro de 5 Hunde, categorías, botones superiores y Materialbox. |
+| `css/sitio.css` | Evita que «DEINE BÜCHER» se parta en dos líneas. |
 | `js/gsap-inicio.js` | Activa el plugin ScrollTrigger de GSAP. |
 | `js/ajustes-panel.js` | **Colores, tamaños y bordes del panel de cuenta.** Es el archivo que más se edita. |
 | `js/kapitel-etiquetas.js` | Cambia «Lektionen» por «Lesung(en)» y «Clip(s)» en la lista del curso. |
@@ -19,12 +24,17 @@ las líneas de [`squarespace/code-injection.html`](squarespace/code-injection.ht
 
 `ajustes-panel.js` debe cargarse **antes** que `konto-thumbnails.js` y `konto-aspecto.js`.
 
+Los CSS se cargan en el orden de la tabla. La caja *Diseño → Custom CSS* de Squarespace
+queda vacía y sirve solo para pruebas rápidas: lo que funcione se pasa a estos archivos.
+Ojo: allí se acepta la sintaxis LESS (comentarios con `//`), pero estos archivos son CSS
+normal y solo admiten comentarios `/* … */`.
+
 ## Cómo publicar un cambio
 
 1. Edita el archivo y guarda.
 2. Sube el cambio a GitHub (commit + push).
-3. Crea una versión nueva (tag), por ejemplo `1.0.1`.
-4. En Squarespace → *Code Injection*, cambia `@1.0.0` por `@1.0.1` en todas las líneas.
+3. Crea una versión nueva (tag), por ejemplo `1.1.1`.
+4. En Squarespace → *Code Injection*, cambia `@1.1.0` por `@1.1.1` en todas las líneas.
 
 Para probar sin crear versión, se puede usar `@main` en lugar del número. jsDelivr guarda
 copia hasta 12 horas; para forzar la actualización de un archivo, abre:

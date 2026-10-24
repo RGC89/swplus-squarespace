@@ -1,0 +1,102 @@
+/* ==========================================
+   SW+ — CABECERA
+   Botón de login, menús desplegables y navegación.
+   ========================================== */
+
+/* ---------- BOTÓN DE LOGIN ---------- */
+
+/* Escritorio: botón negro */
+.user-accounts-link .user-accounts-text-link {
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 1px solid #18191A;
+  padding: .5rem 1rem;
+  color: #18191A !important;
+  font-weight: bold;
+}
+
+.user-accounts-link .user-accounts-text-link:hover {
+  background: #18191A !important;
+  color: #FFFAE2 !important;
+}
+
+/* Menú móvil abierto: botón claro */
+.header--menu-open .user-accounts-link .user-accounts-text-link {
+  text-transform: uppercase;              /* Mayúsculas */
+  border-radius: 50px;                    /* Esquinas redondeadas */
+  border: 1px solid #FFFAE2;
+  padding: .5rem 1rem;
+  color: #FFFAE2 !important;
+  font-weight: bold;
+}
+
+/* Colores al pasar el cursor */
+.header--menu-open .user-accounts-link .user-accounts-text-link:hover {
+  background: #FFFAE2 !important;
+  color: #18191A !important;
+}
+
+
+/* ---------- MENÚS DESPLEGABLES - GHOSTPLUGINS.COM ---------- */
+
+/* Flecha indicadora de carpeta */
+.header-nav-folder-title:after {
+  content: "▾";
+}
+
+/* Líneas divisorias entre enlaces de la carpeta */
+.header-nav .header-nav-item--folder .header-nav-folder-content .header-nav-folder-item {
+  padding: 15px 0px;
+  border-bottom: 1px solid #000;
+}
+
+.header-nav .header-nav-item--folder .header-nav-folder-content .header-nav-folder-item:last-child {
+  border-bottom: none !important;
+}
+
+/* Sombra y bordes del desplegable */
+.header-nav .header-nav-item--folder .header-nav-folder-content {
+  filter: drop-shadow(0 0 0.5rem #18191a);
+  padding: 10px !important;
+  border: 0px solid #18191a !important;
+  border-radius: 10px !important;
+}
+
+/* Fondo del desplegable: alternativas sin usar.
+   Color sólido:
+   .header-nav-folder-content { background: #FF8525!important; }
+   Degradado:
+   .header-nav-folder-content {
+     background: #FF8525;
+     background: -webkit-linear-gradient(to right, #FF8525, #FF8525);
+     background: linear-gradient(to right, #FF8525, #FF8525) !important;
+   }
+*/
+
+
+/* ---------- NAVEGACIÓN: HOVER EN FORMA DE PÍLDORA - GHOSTPLUGINS.COM ---------- */
+
+.header-nav-item a {
+  padding: 5px 12px !important;
+  background-image: none !important;
+  transition: all ease-in-out .2s !important;
+}
+
+.header-nav-item a:hover {
+  background: #28292b;
+  cursor: pointer;
+  opacity: 100%;
+  padding: 5px 12px;
+  border-radius: 50px;
+  transition: all ease-in-out .2s !important;
+}
+
+/* Color de fondo del menú desplegable */
+.header-nav-folder-content {
+  background: #FF8525!important;
+}
+
+/* Excluir los enlaces de carpeta del efecto hover */
+.header-nav .header-nav-item--folder .header-nav-folder-content a {
+  transform: rotate(0deg) !important;
+}

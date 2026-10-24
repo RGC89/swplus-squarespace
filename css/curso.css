@@ -1,0 +1,56 @@
+/* ==========================================
+   SW+ — PÁGINA DE LECCIONES DEL CURSO
+   Panel lateral y botones de cada lección.
+   ========================================== */
+
+/* Lección: texto del enlace para volver a la página general */
+.course-item__course-title a:before {
+  content: "← Zurück zu ";
+}
+
+/* Lección: ocultar el botón "completar y continuar" de arriba */
+.course-item .course-item__header .course-item__next-lesson-button {
+  display: none
+}
+
+/* Lección: texto del botón "completar y continuar" */
+.course-item__next-lesson-button * {
+  font-size: 0!important
+}
+
+.course-item__next-lesson-button:after {
+  font-size: 1rem!important;
+  content: "Nächster Clip"
+}
+
+/* Panel lateral: botón de abrir/cerrar más grande */
+.course-item .course-item__side-nav-header .course-item__side-nav-toggle-button-desktop {
+  width: 150%;
+  height: 100%;
+}
+
+.course-item .course-item__side-nav-header .course-item__side-nav-toggle-button-desktop svg {
+  width: 20px;
+}
+
+/* Panel lateral: quitar el botón de reproducción */
+.course-item__video-player-icon-container {
+  display: none
+}
+
+/* Panel lateral: quitar las duraciones */
+.course-item__side-nav-lesson-metadata, .course-item__side-nav-chapter-duration {
+  display: none
+}
+
+/* Panel lateral: título de cada capítulo */
+.course-item__side-nav-chapter-header {
+  text-align: center;
+}
+
+/* Panel lateral: tamaño y forma de las miniaturas */
+.course-item__side-nav-thumbnail-container {
+  border-radius: 5%!important;
+  height: 60px!important;
+  width: 100px!important
+}

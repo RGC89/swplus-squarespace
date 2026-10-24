@@ -1,0 +1,67 @@
+/* ==========================================
+   SW+ — ESTILOS GENERALES
+   Paywall, scroll, enlaces externos y barra de desplazamiento.
+   ========================================== */
+
+/* Paywall: texto del enlace ZUM FRAGEBOGEN */
+#sqs-paywall-page-root a[href*="/fragebogen"] {
+  font-size: 25px !important;
+  font-weight: 1000 !important;
+  display: inline-block;
+  margin: 30px 0 40px;
+}
+
+/* Desplazamiento suave en todo el sitio */
+html {
+  scroll-behavior: smooth!important;
+}
+
+
+/* ==========================================
+   ICONO DE ENLACE EXTERNO - GHOSTPLUGINS.COM
+   Se aplica al poner en negrita el texto de un enlace.
+   ========================================== */
+
+p a strong:after {
+  width: 18px; /* ancho del icono */
+  height: 18px; /* alto del icono */
+  margin-left: 5px; /* espacio a la izquierda */
+  margin-right: 2px; /* espacio a la derecha */
+  filter: invert(0); /* invertir el icono */
+  background-image: url('https://static1.squarespace.com/static/5ba5e044b10f25cb908c506f/t/66ddf85cd4b0e965fd30d4a4/1725823068704/external_icon_2.png'); /* archivo del icono */
+  display: inline-block;
+  background-size: contain;
+  content: "";
+  vertical-align: middle;
+}
+
+/* Devolver el enlace en negrita a peso normal */
+p a strong {
+  font-weight: normal;
+}
+
+
+/* ==========================================
+   BARRA DE DESPLAZAMIENTO - GHOSTPLUGINS.COM
+   ========================================== */
+
+/* Ancho de la barra */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Fondo de la barra */
+::-webkit-scrollbar-track {
+  background: #18191a;
+  border-left: 1px solid #ddd;
+}
+
+/* Control deslizante */
+::-webkit-scrollbar-thumb {
+  background: #f15b37;
+}
+
+/* Control deslizante al pasar el cursor */
+::-webkit-scrollbar-thumb:hover {
+  background: #fff9d8;
+}
