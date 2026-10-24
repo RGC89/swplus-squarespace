@@ -1,0 +1,9 @@
+/* ==========================================
+   SW+ — ESTILOS GENERALES DEL SITIO
+   ========================================== */
+
+/* Botón "Deine Bücher" (js/header-deine-buecher.js):
+   evitar que el nuevo texto se divida en dos líneas */
+header .sw-deine-buecher-button {
+  white-space: nowrap !important;
+}
